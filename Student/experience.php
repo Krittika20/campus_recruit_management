@@ -1,9 +1,10 @@
 ﻿<?php
+session_start();
 $error = "";
 $success = "";
 if(array_key_exists("submit",$_POST))
 {
-    $link = mysqli_connect("localhost","root"," ","ospforms");
+    $link = mysqli_connect("localhost","root","","ospforms");
     if(mysqli_connect_error()){
         die("Database connection Error");
     }
@@ -26,6 +27,10 @@ if(array_key_exists("submit",$_POST))
         
         $error .= "Experience is required<br>";
     }
+    if(!$_POST['email'])
+    {
+      $error .= "Email is required<br>";
+    }
     // if(!$_POST['suggestion'])
     // {
     //   $error .= "P done is required";
@@ -39,8 +44,9 @@ if(array_key_exists("submit",$_POST))
     else
     {
         
-            $query = "INSERT INTO studentexp(cname,salary,mode,experience,suggestion) 
-            VALUES('".mysqli_real_escape_string($link,$_POST['cname'])."',
+            $query = "INSERT INTO studentexp(email,cname,salary,mode,experience,suggestion) 
+            VALUES('".mysqli_real_escape_string($link,$_POST['email'])."',
+            '".mysqli_real_escape_string($link,$_POST['cname'])."',
             '".mysqli_real_escape_string($link,$_POST['salary'])."',
             '".mysqli_real_escape_string($link,$_POST['mode'])."',
             '".mysqli_real_escape_string($link,$_POST['experience'])."',
@@ -71,7 +77,8 @@ if(array_key_exists("submit",$_POST))
     <link href="assets/css/custom.css" rel="stylesheet" />
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-</head>
+
+  </head>
 <body>
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
@@ -129,7 +136,71 @@ if(array_key_exists("submit",$_POST))
           
                 </ul>
             </div>
-                </nav>
+            </nav>
+            <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    MY DETAILS 
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                    
+                                        <table class="table table-striped table-bordered table-hover" id="dataTables">
+                                            <thead>
+                                                <tr>
+                                                    <th>COMPANY</th>
+                                                    <th>SALARY</th>
+                                                    <th>MODE</th>
+                                                    <th>EXPERIENCE</th>
+                                                </tr>
+                                            </thead>
+                                           
+
+                                            <?php
+                                            
+                                            $conn=mysqli_connect("localhost","root","","ospforms");
+                                           if($conn-> connect_error){
+                                               die("Connection failed :". $conn-> connect_error);
+                                           }
+                                           
+                                           $sql="SELECT cname,salary,mode,experience from studentexp WHERE email = '".mysqli_real_escape_string($conn,$_SESSION['smail'])."'";
+                                           $result=$conn-> query($sql);
+                                           if($result-> num_rows>0)
+                                           {
+                                               while($row=$result-> fetch_assoc()){
+                                                   echo "<tr><td>". $row["cname"]."</td><td>".$row["salary"]."</td><td>".$row["mode"]."</td><td>".$row["experience"]."</td><td>"."</td><tr>";
+                                               }
+                                               echo "</table>";
+                                           }
+                                           else{
+                                               echo "0 result";
+                                           }
+                                          
+                                           $conn-> close();
+                                           ?>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+               
+               
                 <div class="container">
       <div class="row col-md-6 col-md-offset-3">
         <div class="panel panel-primary">
@@ -139,6 +210,10 @@ if(array_key_exists("submit",$_POST))
           <div class="panel-body">
             <form method="post">
               <div class="form-group">
+              <label for="email">Email</label><br>
+                <input id="email" name="email" class="details" type="email">
+              </div>
+                <div class="form-group">
                 <label for="Name">Name of the Company</label>
                 <input
                   type="text"

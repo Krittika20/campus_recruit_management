@@ -1,9 +1,11 @@
 ﻿<?php
+session_start();
+
 $error = "";
 $success = "";
 if(array_key_exists("submit",$_POST))
 {
-    $link = mysqli_connect("localhost","root"," ","ospforms");
+    $link = mysqli_connect("localhost","root","","ospforms");
     if(mysqli_connect_error()){
         die("Database connection Error");
     }
@@ -43,13 +45,13 @@ if(array_key_exists("submit",$_POST))
     }
     else
     {
-        
-            $query = "INSERT INTO sprofile(SNAME,SEID,SPH,SSK,SPR) 
-            VALUES('".mysqli_real_escape_string($link,$_POST['Name'])."',
-            '".mysqli_real_escape_string($link,$_POST['email'])."',
-            '".mysqli_real_escape_string($link,$_POST['mobilenumber'])."',
-            '".mysqli_real_escape_string($link,$_POST['skills'])."',
-            '".mysqli_real_escape_string($link,$_POST['projects'])."')";
+            $query = "UPDATE users SET NAME='".mysqli_real_escape_string($link,$_POST['Name'])."',
+            EMAIL = '".mysqli_real_escape_string($link,$_POST['email'])."',
+            PHONE = '".mysqli_real_escape_string($link,$_POST['mobilenumber'])."',
+            SKILLS = '".mysqli_real_escape_string($link,$_POST['skills'])."',
+            PROJECTS = '".mysqli_real_escape_string($link,$_POST['projects'])."' 
+            WHERE EMAIL = '".mysqli_real_escape_string($link,$_SESSION['smail'])."'";
+            
             if(!mysqli_query($link,$query))
             {
                 $error = "<p>Please try again.</p>";
@@ -57,7 +59,7 @@ if(array_key_exists("submit",$_POST))
             else
             {
                 
-                $success =  "<p>Successfully submitted.</p>";
+                $success =  "<p>Successfully Updated.</p>";
             }    
     }
 } 
@@ -121,11 +123,85 @@ font-size: 16px;"> &nbsp; <a href="../home_login_pages/index.php" class="btn btn
                 </ul>
             </div>
                 </nav>
+
+
+            
+                <div id="page-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h1 class="page-header">Tables</h1>
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    MY DETAILS 
+                                </div>
+                                <!-- /.panel-heading -->
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                    
+                                        <table class="table table-striped table-bordered table-hover" id="dataTables">
+                                            <thead>
+                                                <tr>
+                                                    <th>NAME</th>
+                                                    <th>EMAIL</th>
+                                                    <th>MOBILE NUMBER</th>
+                                                    <th>SKILLS</th>
+                                                    <th>PROJECTS</th>
+                                                </tr>
+                                            </thead>
+                                            <?php
+                                            
+                                            $conn=mysqli_connect("localhost","root","","ospforms");
+                                            if($conn-> connect_error){
+                                                die("Connection failed :". $conn-> connect_error);
+                                            }
+                                            
+                                            $sql="SELECT NAME,EMAIL,PHONE from users WHERE EMAIL = '".mysqli_real_escape_string($conn,$_SESSION['smail'])."'";
+                                            $sql1="SELECT SKILLS,PROJECTS from users WHERE EMAIL = '".mysqli_real_escape_string($conn,$_SESSION['smail'])."'";
+                                            $result1 = $conn->query($sql1);
+                                            $result=$conn-> query($sql);
+                                            if($result-> num_rows>0)
+                                            {
+                                                while($row=$result-> fetch_assoc() and $row1=$result1->fetch_assoc()){
+                                                    echo "<tr><td>". $row["NAME"]."</td><td>".$row["EMAIL"]."</td><td>".$row["PHONE"]."</td><td>".$row1["SKILLS"]."</td><td>".$row1["PROJECTS"]."</td><td>"."</td><tr>";
+                                                }
+                                                echo "</table>";
+                                            }
+                                            else{
+                                                echo "0 result";
+                                            }
+                                            $sql="SELECT SKILLS,PROJECTS from users WHERE EMAIL = '".mysqli_real_escape_string($conn,$_SESSION['smail'])."'";
+                                            
+                                            $conn-> close();
+                                            ?>
+                                        </table>
+                                    </div>
+                                    
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
+                            <!-- /.panel -->
+                        </div>
+                        <!-- /.col-lg-12 -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+            </div>
+        </div>
+
+
+
                 <div class="container">
       <div class="row col-md-6 col-md-offset-3">
         <div class="panel panel-primary">
           <div class="panel-heading text-center">
-            <h1>Details of the Student</h1>
+            <h1>UPDATE DETAILS</h1>
           </div>
           <div class="panel-body">
             <form method="post">

@@ -99,7 +99,7 @@
                             <th>APPLY</th>
                         </tr>
                         <?php
-                           $conn=mysqli_connect("localhost","root"," ","ospforms");
+                           $conn=mysqli_connect("localhost","root","","ospforms");
                            if($conn-> connect_error){
                                die("Connection Failed:".$conn-> connect_error);
                            }                    
