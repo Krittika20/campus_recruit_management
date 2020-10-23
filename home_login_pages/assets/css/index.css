@@ -33,7 +33,6 @@ html
             padding-right: 10%;
             padding-left: 13%;
             padding-top: 40px;
-            background-color:;
             font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
             font-size: 22px;
             font: bold;
@@ -46,10 +45,7 @@ html
             {
                 float: right;
             }
-            .points.p
-            {
-              t;
-            }
+            
             body
             {
                 font-family: 'Times New Roman', Times, serif;
@@ -63,10 +59,7 @@ html
             .dropdown:hover>.dropdown-menu {
              display: block;
             }
-            .nav
-            {
-              background-color: ;
-            }
+            
             .nav-link:hover{
               color: orangered;
             }
@@ -101,7 +94,7 @@ html
               margin-top: 50px;
               margin-left: 0%;
               margin-right: 0%;
-              background-color: ;
+              
             }
             .form-control
             {

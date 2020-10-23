@@ -4,7 +4,7 @@
     $success = "";
     if(array_key_exists("submit",$_POST))
     {
-        $link = mysqli_connect("localhost","root"," ","ospforms");
+        $link = mysqli_connect("localhost","root","","ospforms");
         if(mysqli_connect_error()){
             die("Database connection Error");
         }
@@ -29,7 +29,14 @@
             
             $error .= "A password is required<br>";
         }
-
+        if(!$_POST['skills'])
+        {
+            $error .= "Skills field is required<br>";
+        }
+        if(!$_POST['project'])
+        {
+            $error .= "Projects field is required<br>";
+        }
         if($error!="")
         {
             
@@ -49,11 +56,13 @@
             }
             else
             {
-                $query = "INSERT INTO users(NAME,EMAIL,PASSWORD,PHONE) 
+                $query = "INSERT INTO users(NAME,EMAIL,PASSWORD,PHONE,SKILLS,PROJECTS) 
                 VALUES('".mysqli_real_escape_string($link,$_POST['name'])."',
                 '".mysqli_real_escape_string($link,$_POST['email'])."',
                 '".mysqli_real_escape_string($link,$_POST['password'])."',
-                '".mysqli_real_escape_string($link,$_POST['phone'])."')";
+                '".mysqli_real_escape_string($link,$_POST['phone'])."',
+                '".mysqli_real_escape_string($link,$_POST['skills'])."',
+                '".mysqli_real_escape_string($link,$_POST['project'])."')";
                 if(!mysqli_query($link,$query))
                 {
                     $error = "<p>Sign Up failed. Please try again.</p>";
@@ -197,11 +206,7 @@
                     alert("Passwords don't match");
                     return false;
                 }
-                else if(p.length<=6)
-                {
-                    alert("Password too short!");
-                    return false;
-                }
+                
                 else if(ph=="")
                 {
                     alert("Enter your phone number");
@@ -225,35 +230,68 @@
    
 </head>
     <body>
-        <div class="container login col-sm-12 col-lg-9 col-md-12 col-xl-7">
+        <div class="container login col-sm-12 col-lg-10 col-md-10 col-xl-7">
             
             <form method ="POST" action="signup.php" class="form" name="form">
                 <div class="form-group" name="form">
                 <h2 class="l text-light" style="padding-left: 50px;">STUDENT SIGN UP</h2><br>
-
-                <label for="name">Name</label><br>
-                
+                <table>
+                    <tr>
+                        <td>
+                    <label for="name">Name</label><br>
                 <input id="name" name="name" class="details" type="text" placeholder="Name">
-                
-               
-                <br>
-
-                <label for="Email">Email</label><br>
+                    </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                        <label for="Email">Email</label><br>
                 <input id="Email" name="email" class="details" type="email" placeholder="Email">
-                <br>
-                
-                <label for="password">Password</label><br>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                        <label for="password">Password</label><br>
                 <input id="password" name="password" class="details" type="password" placeholder="Password">
-                <br>
-                <label for="rpassword">Confirm Password</label><br>
-                <input id="rpassword" name="rpassword" class="details" type="password" placeholder="Re-Enter Password"><br>
-                
-                <label for="phone">Phone Number</label><br>
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td>   
+                        <label for="rpassword">Confirm Password</label><br>
+                <input id="rpassword" name="rpassword" class="details" type="password" placeholder="Re-Enter Password">
+                        </td>
+                        
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                        <label for="phone">Phone Number</label><br>
                 <input id="phone" name="phone" class="details" type="number" placeholder="Phone Number">
-                <br>
-                
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                        <label for="skills">Skills</label><br>
+                <input id="skills" name="skills" class="details" type="text" placeholder="Skills">
 
-                    <br><br>
+                        </td>
+                    </tr>
+                    
+                    <tr>
+                        <td>
+                        <label for="projects">Projects</label><br>
+                <input id="project" name="project" class="details" type="text" placeholder="Projects">
+
+                        </td>
+                    </tr>
+                </table>
+                
+                
+                
                     <span id="ahac" style="color:white;margin-left: 80px;font-size: 20px;"><a style="color:white;" href="login.php">Already have an account?</a></span><br>
                 <br>
                 <input type="hidden" name="signUp" value="1">

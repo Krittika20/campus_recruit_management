@@ -4,7 +4,7 @@
     $success = "";
     if(array_key_exists("submit",$_POST))
     {
-        $link = mysqli_connect("localhost","root"," ","ospforms");
+        $link = mysqli_connect("localhost","root","","ospforms");
         if(mysqli_connect_error()){
             die("Database connection Error");
         }
