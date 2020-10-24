@@ -1,13 +1,15 @@
 <?php
-
+    session_start();
     $error = "";
     $success = "";
     if(array_key_exists("submit",$_POST))
     {
-        $link = mysqli_connect("localhost","root","","ospforms");
+        $link = mysqli_connect("localhost","puneetha","Puneetha@25","ospforms");
         if(mysqli_connect_error()){
             die("Database connection Error");
         }
+
+        $_SESSION["cmail"] = $_POST['email'];
 
         
         if(!$_POST['email'])
@@ -221,8 +223,8 @@
             <form method="POST" class="form-group" name="form">
             
                 <h2 class="l">COMPANY LOGIN</h2>
-                <label for="Email">Email</label><br>
-                <input id="Email" name="email" class="details" type="email" placeholder="Email">
+                <label for="email">Email</label><br>
+                <input id="email" name="email" class="details" type="email" placeholder="Email">
                 <span id="inv" style="color: black; visibility: hidden;">Enter your Email</span><br>
                 <span class="back">Back</span>
                 <button class="butn send">Reset</button><br>
@@ -232,7 +234,7 @@
                 <span id="p" style="color: black; visibility: hidden;">Enter your password</span><br>
                 
                 <input id="check" type="checkbox" name="stayloggedin" value="1">
-                <label for="Email" class="kl">Keep me logged in</label><br>
+                <label for="email" class="kl">Keep me logged in</label><br>
                 <a class="forgot text-muted" href="#">&nbsp;&nbsp;Forgot password?</a><br>
                 <a class="na" href="csignup.php">&nbsp;&nbsp;Don't have an account?</a><br>                
                 <input type="hidden" name="signUp" value="0">
