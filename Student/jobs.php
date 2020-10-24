@@ -68,11 +68,8 @@
 						  
                     <li  >
                         <a  href="experience.php" ><i class="fa fa-edit fa-3x"></i>INTERVIEW EXPERIENCE</a>
-                    </li>	
-                    <!-- <li  >
-                        <a  href="settings.html"><i class="fa fa-edit fa-3x"></i>SETTINGS</a> 
-                   </li>-->	
-                 <li>
+                    </li>
+			<li>
                         <a href=""><i class=""></i></a>
                     </li>
                     <li>
@@ -87,6 +84,61 @@
                     <li>
                         <a href=""><i class=""></i></a>
                     </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                  
                     </ul>
                     </div>
                     </nav>
