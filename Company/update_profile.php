@@ -5,7 +5,7 @@ $error = "";
 $success = "";
 if(array_key_exists("submit",$_POST))
 {
-    $link = mysqli_connect("localhost","puneetha","Puneetha@25","ospforms");
+    $link = mysqli_connect("localhost","root"," ","ospforms");
     if(mysqli_connect_error()){
         die("Database connection Error");
     }
@@ -266,7 +266,7 @@ if(array_key_exists("submit",$_POST))
                                     <div class="table-responsive">
                                       <!-- <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Names.."> -->
                                       <?php
-                                      $conn=mysqli_connect("localhost","puneetha","Puneetha@25");
+                                      $conn=mysqli_connect("localhost","root"," ");
                                       $db=mysqli_select_db($conn,"ospforms");
                                       $query="select CNAME,CEID,CPH,CHEAD,CSIZE,CINFO,CIND,CFDB,CTYP,CWEB,CINT,CSPE from cusers";
                                       $query_run=mysqli_query($conn,$query);
@@ -290,7 +290,7 @@ if(array_key_exists("submit",$_POST))
                                             </thead>
                                             <?php
                                             
-                                            $conn=mysqli_connect("localhost","puneetha","Puneetha@25","ospforms");
+                                            $conn=mysqli_connect("localhost","root"," ","ospforms");
                                             if($conn-> connect_error){
                                                 die("Connection failed :". $conn-> connect_error);
                                             }
