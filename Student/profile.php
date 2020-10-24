@@ -118,7 +118,61 @@ font-size: 16px;"> &nbsp; <a href="../home_login_pages/index.php" class="btn btn
 			
                     <li  >
                          <a  href="experience.php"><i class="fa fa-edit fa-3x"></i>INTERVIEW EXPERIENCE</a> 
-                    </li>	
+                    </li>
+			<li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
 
                 </ul>
             </div>
@@ -169,7 +223,7 @@ font-size: 16px;"> &nbsp; <a href="../home_login_pages/index.php" class="btn btn
                                             if($result-> num_rows>0)
                                             {
                                                 while($row=$result-> fetch_assoc() and $row1=$result1->fetch_assoc()){
-                                                    echo "<tr><td>". $row["NAME"]."</td><td>".$row["EMAIL"]."</td><td>".$row["PHONE"]."</td><td>".$row1["SKILLS"]."</td><td>".$row1["PROJECTS"]."</td><td>"."</td><tr>";
+                                                    echo "<tr><td>". $row["NAME"]."</td><td>".$row["EMAIL"]."</td><td>".$row["PHONE"]."</td><td>".$row1["SKILLS"]."</td><td>".$row1["PROJECTS"]."</td><td>"."</td></tr>";
                                                 }
                                                 echo "</table>";
                                             }
