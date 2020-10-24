@@ -163,11 +163,9 @@ if(array_key_exists("submit",$_POST))
                     <li>
                         <a href="view_student.php"><i class="fa fa-sitemap fa-fw"></i>View Students<span class="fa arrow"></span></a>
                     </li>
+                   
                     <li>
-                        <a href="Interview_Status.html"><i class="fa fa-sitemap fa-fw"></i>Update Interview Status<span class="fa arrow"></span></a>
-                    </li>
-                    <li>
-                        <a href="Profile.html"><i class="fa fa-sitemap fa-fw"></i>Profile<span class="fa arrow"></span></a>
+                        <a href="update_profile.php"><i class="fa fa-sitemap fa-fw"></i>Profile<span class="fa arrow"></span></a>
                     </li>
                     <li>
                         <a href="postjobs.php"><i class="fa fa-sitemap fa-fw"></i>Post Jobs<span class="fa arrow"></span></a>
