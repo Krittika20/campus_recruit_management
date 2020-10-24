@@ -181,7 +181,7 @@ function myFunction() {
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Skills..">
+                                      <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for Company Names..">
                                         <table class="table table-striped table-bordered table-hover" id="dataTables">
                                             <thead>
                                                 <tr>
