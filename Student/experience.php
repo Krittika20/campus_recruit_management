@@ -115,24 +115,60 @@ if(array_key_exists("submit",$_POST))
                      <li  > 
                         <a  href="experience.php" class="active-menu"><i class="fa fa-edit fa-3x"></i>INTERVIEW EXPERIENCE</a> 
                     </li>		
-                    <!-- <li  >
-                      <a  href="settings.html"><i class="fa fa-edit fa-3x"></i>SETTINGS</a> 
-                 </li>	 -->
-                 <!-- <li>
-                      <a href=""><i class=""></i></a>
-                  </li>
-                  <li>
-                      <a href=""><i class=""></i></a>
-                  </li>
-                  <li>
-                      <a href=""><i class=""></i></a>
-                  </li>
-                  <li>
-                      <a href=""><i class=""></i></a>
-                  </li>
-                  <li>
-                      <a href=""><i class=""></i></a>
-                  </li> -->
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
+                    <li>
+                        <a href=""><i class=""></i></a>
+                    </li>
           
                 </ul>
             </div>
