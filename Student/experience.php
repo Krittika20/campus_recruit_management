@@ -214,7 +214,7 @@ if(array_key_exists("submit",$_POST))
                                            if($result-> num_rows>0)
                                            {
                                                while($row=$result-> fetch_assoc()){
-                                                   echo "<tr><td>". $row["cname"]."</td><td>".$row["salary"]."</td><td>".$row["mode"]."</td><td>".$row["experience"]."</td><td>"."</td><tr>";
+                                                   echo "<tr><td>". $row["cname"]."</td><td>".$row["salary"]."</td><td>".$row["mode"]."</td><td>".$row["experience"]."</td><td>"."</td></tr>";
                                                }
                                                echo "</table>";
                                            }
