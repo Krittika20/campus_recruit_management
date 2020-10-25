@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$conn=mysqli_connect("localhost","puneetha","Puneetha@25","ospforms");
+$conn=mysqli_connect("localhost","root","","ospforms");
 if(mysqli_connect_error()){
    die('Could not Connect My Sql:');
 }
@@ -14,7 +14,8 @@ if(mysqli_connect_error()){
   $result1 = mysqli_query($conn,$sql1);
   $values1= mysqli_fetch_assoc($result1);
   $num_rows1 = $values1['total1'];
-
+  $query = "SELECT EMAIL, NAME FROM users"; // select column
+  $aresult = $conn->query($query);
 ?>
 
 
@@ -48,12 +49,6 @@ if(mysqli_connect_error()){
     <!-- Custom Fonts -->
     <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 </head>
 <body>
 
@@ -157,7 +152,7 @@ if(mysqli_connect_error()){
                 </div>
             </div>
             
-            <div class = "row">
+        <div class = "row">
             
             <div class="col-lg-3 col-md-6">
             <div class="panel panel-primary">
@@ -186,6 +181,23 @@ if(mysqli_connect_error()){
             </div>
             </div>
             </a>
+                   <div class="col-lg-12">
+        <div >
+        <br>
+            <br><h5 ><b>SuperDream Companies Visited</b></h5><br>
+            <!-- /.panel-heading -->
+            <div >
+                <div><img src="Google.PNG" width="170"
+         height="100"></div>
+            </div><br>
+            <div >
+                <div><img src="amazon.jpg" width="170"
+         height="100"></div>
+            </div>
+        </div>
+            </div>
+            
+            
             </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -216,13 +228,103 @@ if(mysqli_connect_error()){
             </div>
             </div>
             </a>
+            
+
+            <div class="col-lg-12">
+        <div >
+            <br><p><b></b></p><br><br>
+            <!-- /.panel-heading -->
+            <br><div >
+                <div><img src="UC.PNG" width="170"
+         height="100"></div>
+            </div>
+            <div >
+            <br>
+                <div><img src="microsoft.PNG" width="170"
+         height="100"></div>
+            </div>
+        </div>
             </div>
             </div>
-           
-            </div> 
-        
-        </div>                       
+        </div> 
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                    Latest Student Entries
+                    </div>
+                    <!-- /.panel-heading -->
+                        <div class="panel-body">
+                    <table class="table table-striped table-bordered table-hover" id="dataTables">
+                    <thead>
+                    <tr>
+                    <th>NAME</th>
+                    <th>EMAIL</th>
+                    <th> View MOre</th>
+                    </tr>
+                    </thead>
+                    <?php
+                    $conn=mysqli_connect("localhost","root","","ospforms");
+                    if($conn-> connect_error){
+                         die("Connection failed :". $conn-> connect_error);
+                    }
+                    $sql="SELECT SNAME,SEID from sprofile limit 3";
+                    $result=$conn-> query($sql);
+                    if($result-> num_rows>0)
+                    {
+                    while($row=$result-> fetch_assoc()){
+                        echo "<tr><td>". $row["SNAME"]."</td><td>".$row["SEID"]."</td><td><a herf ='view_student.php'>Click Me</a></td><td>";
+                    }
+                    echo "</table>";
+                    }
+                    else{
+                        echo "no new Entries";
+                    }
+                    $conn-> close();
+                    ?>
+                    </table>
+                        </div>
+        </div>
     </div>
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Latest Company Entries
+            </div>
+            <!-- /.panel-heading -->
+            <div class="panel-body">
+                <table class="table table-striped table-bordered table-hover" id="dataTables">
+                    <thead>
+                    <tr>
+                    <th>Company NAME</th>
+                    <th>Website</th>
+                    <th> View MOre</th>
+                    </tr>
+                    </thead>
+                    <?php
+                    $conn=mysqli_connect("localhost","root","","ospforms");
+                    if($conn-> connect_error){
+                         die("Connection failed :". $conn-> connect_error);
+                    }
+                    $sql="SELECT CNAME,CWEB from cusers limit 3";
+                    $result=$conn-> query($sql);
+                    if($result-> num_rows>0)
+                    {
+                    while($row=$result-> fetch_assoc()){
+                        echo "<tr><td>". $row["CNAME"]."</td><td>".$row["CWEB"]."</td><td><a herf ='view_company.php'>Click Me</a></td><td>";
+                    }
+                    echo "</table>";
+                    }
+                    else{
+                        echo "no new Entries";
+                    }
+                    $conn-> close();
+                    ?>
+                    </table>
+            </div>
+        </div>
+    </div> 
+    </div>
+</div>
 
 </div>
 
@@ -236,7 +338,7 @@ if(mysqli_connect_error()){
 <script src="js/metisMenu.min.js"></script>
 
 <!-- Custom Theme JavaScript -->
-<script src="js/startmin.js"></script>
+
 
 </body>
 </html>
